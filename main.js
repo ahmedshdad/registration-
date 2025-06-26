@@ -1,12 +1,11 @@
-   // -------------------  Registration-------------------
- 
+// -------------------  Registration-------------------
+
 var nameInput = document.getElementById("registraionName");
 var emailInput = document.getElementById("registrationEmail");
 var passwordInput = document.getElementById("registrationPassword");
 var registrationError = document.getElementById("registrationError");
 
-if (nameInput && emailInput && passwordInput) 
-  {
+if (nameInput && emailInput && passwordInput) {
   var signUpBtn = document.querySelector("button");
   signUpBtn.addEventListener("click", registerUser);
 }
@@ -17,16 +16,12 @@ function registerUser() {
   var password = passwordInput.value;
 
   if (name === "" || email === "" || password === "") {
- 
     registrationError.previousElementSibling.classList.remove("d-none");
-
     return;
-
   }
 
-  var users = [] ;
-
-  users=JSON.parse(localStorage.getItem("users")) ;
+  var users = [];
+  users = JSON.parse(localStorage.getItem("users")) || [];
   var emailExists = false;
 
   for (var i = 0; i < users.length; i++) {
@@ -37,8 +32,7 @@ function registerUser() {
   }
 
   if (emailExists) {
-    
-    registrationError.classList.remove("d-none")
+    registrationError.classList.remove("d-none");
     return;
   }
 
@@ -46,13 +40,12 @@ function registerUser() {
     name: name,
     email: email,
     password: password
-   };
+  };
 
   users.push(newUser);
   localStorage.setItem("users", JSON.stringify(users));
 
- 
-  registrationError.nextElementSibling.classList.remove("d-none")
+  registrationError.nextElementSibling.classList.remove("d-none");
 }
 
 // -------------------  login -------------------
@@ -88,23 +81,20 @@ function loginUser() {
   }
 
   if (found) {
-    sessionStorage.setItem("loggedInUser", username);
+    localStorage.setItem("loggedInUser", username);
     location.href = "home.html";
   } else {
     loginError.nextElementSibling.classList.remove("d-none");
   }
 }
+
 // ------------------- Home -------------------
 
-
-
- 
-var username = sessionStorage.getItem("loggedInUser");
+var username = localStorage.getItem("loggedInUser");
 document.getElementById("usernameDisplay").textContent = username;
 
- 
 var logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", function () {
-  sessionStorage.removeItem("loggedInUser");
+  localStorage.removeItem("loggedInUser");
   location.href = "index.html";
 });
