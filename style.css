@@ -1,0 +1,43 @@
+  .login {
+    background-color: #24353F;
+  }
+
+  .login .content {
+    box-shadow: 0 5px 30px #070606;
+  }
+
+  .form-control::placeholder {
+    color: white;
+  }
+
+  .login .content .btn:hover {
+    background-color: #17A2B8 !important;
+    color: white !important;
+
+  }
+
+  .content a {
+    text-decoration: none;
+  }
+
+  .content a:hover {
+    text-decoration: underline;
+  }
+section .navbar{
+    box-shadow: 0 5px 30px #070606 !important;
+}
+section .welcome{
+    box-shadow: 0 5px 30px #070606;
+}
+
+  .logout a{
+    color: white !important;
+    text-decoration: none !important;
+  }
+  .logout:hover {
+    background-color: #FFC107 !important;
+  }
+
+  .navbar-brand:hover {
+    cursor: pointer;
+  }
